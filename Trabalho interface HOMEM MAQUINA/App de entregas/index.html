@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERB Logística - App</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<div class="login-card dashboard-card animacao-entrada">
+    <h2>CERB LOGÍSTICA</h2>
+    <p class="subtitle">Calculador de Lucro Real</p>
+
+    <div class="input-group">
+        <label>Valor da Corrida (R$)</label>
+        <input type="number" id="valorBruto" placeholder="Ex: 25.50" step="0.01">
+    </div>
+
+    <div class="input-group">
+        <label>Distância da Rota (KM)</label>
+        <input type="number" id="distanciaKM" placeholder="Ex: 12.5" step="0.1">
+    </div>
+
+    <button type="button" onclick="calcular()">CALCULAR LUCRO</button>
+
+    <div id="resultado" style="margin: 20px 0; display: none;">
+        <p id="resLucro" style="font-size: 1.2rem; font-weight: bold; color: #00e676;"></p>
+        <p id="resMargem" style="font-size: 0.9rem; color: #b0b0b0;"></p>
+        <strong id="msg"></strong>
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px solid #333; padding-top: 15px;">
+        <a href="../Financeiro/index.html" style="color: #00e676; text-decoration: underline; font-weight: bold;">
+            Acessar Controle Financeiro Completo
+        </a>
+    </div>
+
+    <button type="button" class="btn-sair" id="btn-logout">
+        SAIR DO SISTEMA
+    </button>
+</div>
+
+<!-- Estrutura do Modal de Confirmação -->
+<div id="modal-sair" class="modal-container">
+    <div class="modal-content">
+        <h3>Encerrar Sessão</h3>
+        <p>Você tem certeza que deseja sair do sistema?</p>
+        <div class="modal-buttons">
+            <button id="confirmar-sair" class="btn-modal-sim">SIM, SAIR</button>
+            <button id="cancelar-sair" class="btn-modal-nao">NÃO, VOLTAR</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
