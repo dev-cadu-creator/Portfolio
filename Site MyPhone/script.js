@@ -47,6 +47,18 @@ function atualizarCarrinho() {
         `;
         total += item.preco;
     });
+    function adicionarItem(produto) {
+    // ... seu código que adiciona o item ao carrinho ...
+
+    // Verifica se é uma tela de celular (largura menor ou igual a 768px)
+    if (window.innerWidth <= 768) {
+        // Esconde a div do carrinho. Troque 'id-do-seu-carrinho' pelo ID real que você usou.
+        document.getElementById('id-do-seu-carrinho').style.display = 'none'; 
+        
+        // Opcional: Mostrar um alert rápido ou um "Toast" (notificação) dizendo "Adicionado!"
+        alert('Item adicionado ao carrinho!');
+    }
+}
 
     if (valorTotalElemento) {
         valorTotalElemento.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
