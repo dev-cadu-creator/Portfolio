@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Eduardo | Desenvolvedor Front-end</title>
+    
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Para os ícones das redes sociais) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. Tela de Boas-Vindas Gamificada/Técnica -->
+    <div id="splash-screen" class="splash-screen">
+        <canvas id="splash-canvas"></canvas>
+        
+        <div class="splash-content">
+            <!-- Elemento Visual de Destaque -->
+            <div class="splash-visual">
+                <div class="tech-circle"></div> 
+                <img src="./assets/foto-perfil.jpg" alt="Carlos Eduardo Cyborg" class="splash-avatar">
+            </div>
+            
+            <div class="splash-text">
+                <h1 id="typing-text"></h1>
+                <p id="sub-text" class="fade-in-text">Performance & Design por Carlos Eduardo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegação Super Limpa -->
+    <nav class="navbar reveal">
+        <div class="logo">Cadu</div>
+        <ul class="nav-links">
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero: Tipografia Gigante -->
+        <section class="hero reveal">
+            <h1>Carlos Eduardo.</h1>
+            <h2>Desenvolvedor Front-end | Futuro Full Stack Node.js.</h2>
+            <p>Construindo interfaces limpas, acessíveis e de alta performance.</p>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="projetos">
+            <h3 class="section-label reveal">Trabalhos Selecionados</h3>
+            
+            <div class="projetos-grid">
+                <!-- Projeto 1 -->
+                <article class="projeto-item reveal">
+                    <div class="projeto-img-wrapper">
+                        <img src="./assets/site.png" alt="My Phone Concept" class="open-lightbox">
+                    </div>
+                    <div class="projeto-meta">
+                        <h4>Omni Cell</h4>
+                        <p>E-commerce Mobile • HTML, CSS, Flexbox</p>
+                        <a href="./Site MyPhone/index.html" target="_blank" class="link-animado">Visualizar Projeto</a>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="projeto-item reveal">
+                    <div class="projeto-img-wrapper">
+                        <img src="./assets/app.png" alt="App de Cálculo" class="open-lightbox">
+                    </div>
+                    <div class="projeto-meta">
+                        <h4>App de Cálculo</h4>
+                        <p>Lógica Avançada • JS Vanilla, Manipulação de DOM</p>
+                        <a href="./Trabalho interface HOMEM MAQUINA/Login/index.html" target="_blank" class="link-animado">Visualizar Projeto</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+       <!-- Seção Sobre -->
+        <section id="sobre" class="sobre">
+            <div class="sobre-grid">
+                <div class="sobre-texto reveal">
+                    <h3 class="section-label">Sobre Mim</h3>
+                    <p>Sou estudante de Ciência da Computação na Uniube e um entusiasta da tecnologia com uma forte veia empreendedora. Minha jornada começou buscando entender como a tecnologia pode simplificar e resolver problemas reais do dia a dia, desde processos de logística até o gerenciamento de negócios.</p>
+                    <p>Meu foco absoluto é o desenvolvimento Front-end, construindo interfaces semânticas, escaláveis e acessíveis. Em paralelo, estou mergulhando fundo no ecossistema Node.js para fechar o ciclo e entregar soluções completas de ponta a ponta.</p>
+                    
+                    <!-- Novo Botão de Currículo Aqui -->
+                    <a href="./assets/Curriculo Carlos Eduardo.pdf" download="Curriculo_Carlos_Eduardo.pdf" class="btn-secundario">
+                        <i class="fa-solid fa-download"></i> Baixar Currículo
+                    </a>
+                </div>
+                <div class="sobre-foto reveal">
+                    <img src="./assets/foto-perfil.jpg" alt="Carlos Eduardo" class="foto-minimalista">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Skills -->
+        <section id="skills" class="skills">
+            <h3 class="section-label reveal">Stack Tecnológico</h3>
+            
+            <div class="skills-container reveal">
+                <div class="skill-column">
+                    <h4>Front-end</h4>
+                    <ul class="skill-list">
+                        <li>HTML5 Semântico</li>
+                        <li>CSS3 & Flexbox/Grid</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React</li>
+                        <li>Angular</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-column">
+                    <h4>Back-end & Ferramentas</h4>
+                    <ul class="skill-list">
+                        <li>Node.js <span>(Em Progresso)</span></li>
+                        <li>Git & GitHub</li>
+                        <li>APIs RESTful</li>
+                        <li>Design Responsivo</li>
+                        <li>Lógica de Programação</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="contato reveal">
+            <div class="contato-content">
+                <h2>Vamos construir<br>algo incrível.</h2>
+                <p>Disponível para novas oportunidades e projetos.</p>
+                
+                <a href="mailto:carloseduardorb12345@gmail.com" class="btn-email">Me mande um E-mail</a>
+                
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/cadu-rodrigues-dev" target="_blank" class="link-animado">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/dev-cadu-creator" target="_blank" class="link-animado">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://wa.me/5534997920510" target="_blank" class="link-animado">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>  
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

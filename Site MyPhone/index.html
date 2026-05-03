@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Omni Cell</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="home" class="cabecalho">
+        <div class="logoContainer">
+            <!-- Logo agora é um link para voltar ao topo suavemente -->
+            <a href="#home" class="logo-link">
+                <img src="./assets/Logo MyPhone.jpg" alt="logoMyphone" class="logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#iwill">Produtos iWill</a></li>
+                <li><a href="#cocacola">Parceria Coca-Cola</a></li>
+                <li><a href="#acessorios">Acessórios</a></li>
+                <li><a href="#informatica">Informática</a></li>
+            </ul>
+        </nav>
+        <div class="contatoContainer">
+            <a href="#" id="btn-whatsapp-vendas" class="btn-whatsapp">Fale com nossas Vendedoras</a>
+        </div>
+    </header>
+    
+    <!-- BANNER PRINCIPAL -->
+    <section class="bannerPrincipal">
+        <div class="conteudoBanner">
+            <h1>Tecnologia e Acessórios com os Melhores Preços</h1>
+            <p>Deixe seu smartphone e o seu setup de cara nova. Confira nossos destaques da semana!</p>
+            <a href="#ofertas" class="btn-comprar-banner">Ver Promoções</a>
+        </div>
+    </section>
+
+    <!-- OFERTAS DA SEMANA -->
+    <section id="ofertas" class="secao-ofertas">
+        <h2 class="titulo-secao">Ofertas da Semana</h2>
+        <div class="grid-ofertas">
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/19.webp" alt="POCO X7 Pro" class="imagem-produto">
+                <h3 class="nome-produto">Celular Xiaomi Poco X7 Pro 5g Dual Sim 12/256gb Cor Amarelo</h3>
+                <ul class="specs-produto">
+                    <li>✓ Câmera com gravação em 4K</li>
+                    <li>✓ Bateria de 6000mAh</li>
+                    <li>✓ Tela AMOLED de 6.67 de 120hz</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-antigo">R$ 2.599,00</span>
+                    <span class="preco-novo">R$ 2.259,99</span>
+                </div>
+                <!-- ATENÇÃO: Adicionados data-nome e data-preco para o JS funcionar sem erros -->
+                <button class="btn-comprar" data-nome="Smartphone POCO X7 Pro" data-preco="2259.99">Comprar Agora</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/15.webp" alt="POCO X7 Pro" class="imagem-produto">
+                <h3 class="nome-produto">Redmi Note 14 Pro+ 5Go</h3>
+                <ul class="specs-produto">
+                    <li>✓ Câmera AI de 200MP</li>
+                    <li>✓ Durabilidade de ponta</li>
+                    <li>✓ HyperCharge de 120 W com bateria de 5.110 mAh</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-antigo">R$ 2.399,00</span>
+                    <span class="preco-novo">R$ 1.999,99</span>
+                </div>
+                <button class="btn-comprar" data-nome="Redmi Note 14 Pro+ 5Go" data-preco="1999.99">Comprar Agora</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/16.webp" alt="POCO X7 Pro" class="imagem-produto">
+                <h3 class="nome-produto">Redmi 14 C</h3>
+                <ul class="specs-produto">
+                    <li>✓ Tela imersiva de 6,88"</li>
+                    <li>✓ Design refinado e estiloso</li>
+                    <li>✓ Bateria enorme de 5160mAh (típ)</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-antigo">R$ 1.499,00</span>
+                    <span class="preco-novo">R$ 1.099,99</span>
+                </div>
+                <button class="btn-comprar" data-nome="Redmi 14 C" data-preco="1099.99">Comprar Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSISTÊNCIA TÉCNICA -->
+    <section class="secao-assistencia">
+        <div class="conteudo-assistencia">
+            <h2 class="titulo-assistencia">Seu celular quebrou? Nós consertamos!</h2>
+            <p>Nossa Assistência Técnica é especializada. Troca de tela, bateria, banho químico e reparo em placas com garantia e rapidez.</p>
+            <a href="#" class="btn-orcamento" id="btn-whatsapp-dinamico">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </section>
+
+    <!-- LINHA PREMIUM IWILL -->
+    <section id="iwill" class="secao-catalogo">
+        <h2 class="titulo-secao">Linha Premium iWill</h2>
+        <div class="grid-ofertas">
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/headset iwill.webp" alt="Fone iWill" class="imagem-produto">
+                <h3 class="nome-produto">Headphone Bluetooth iWill</h3>
+                <ul class="specs-produto">
+                    <li>✓ Som de Alta Definição</li>
+                    <li>✓ Cancelamento de Ruído</li>
+                    <li>✓ Bateria para 20 horas</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 299,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Headphone Bluetooth iWill" data-preco="299.90">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/7.webp" alt="Fone iWill" class="imagem-produto">
+                <h3 class="nome-produto">Fone de Ouvido Bluetooth Preto | Flow TWS Gen 2 iWill</h3>
+                <ul class="specs-produto">
+                    <li>✓ Tecnologia True Wireless (TWS)</li>
+                    <li>✓ Comando touch direto nos fones</li>
+                    <li>✓ Bluetooth 5.3</li>
+                    <li>✓ Tempo total de uso com o estojo: até 13.5h</li>
+                    <li>✓ Design compacto e intra-auricular</li>
+                    <li>✓ Frequência: 20Hz – 20KHz</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 299,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Fone de Ouvido Bluetooth Preto | Flow TWS Gen 2 iWill
+                " data-preco="299.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/8.webp" alt="Fone iWill" class="imagem-produto">
+                <h3 class="nome-produto">Frequência: 20Hz – 20KHz</h3>
+                <ul class="specs-produto">
+                    <li>✓ Caixa de som: Até 7 horas de reprodução contínua</li>
+                    <li>✓ Dois alto-falantes de 5W, totalizando 10W</li>
+                    <li>✓ Área de carregamento wireless com potência de até 15W</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 209,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Headphone Bluetooth iWill" data-preco="209.90">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/9.webp" alt="Fone iWill" class="imagem-produto">
+                <h3 class="nome-produto">Case de Couro para MacBook 14" Marrom | iWill</h3>
+                <ul class="specs-produto">
+                    <li>✓ Capa de proteção compatível com computadores e tablets</li>
+                    <li>✓ Design estilo envelope com acabamento premium</li>
+                    <li>✓ Material em couro sintético </li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 229,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Headphone Bluetooth iWill" data-preco="229.90">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLEÇÃO COCA-COLA -->
+    <section id="cocacola" class="secao-catalogo" style="background-color: #f9f9f9;">
+        <h2 class="titulo-secao">Coleção Exclusiva Coca-Cola</h2>
+        <div class="grid-ofertas">
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/fone cocacola.jpg" alt="Fone Coca-Cola" class="imagem-produto">
+                <h3 class="nome-produto">Fone de Ouvido Coca-Cola Red</h3>
+                <ul class="specs-produto">
+                    <li>✓ Edição Limitada</li>
+                    <li>✓ Conexão Bluetooth 5.0</li>
+                    <li>✓ Design Ergonômico</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 189,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Fone de Ouvido Coca-Cola Red" data-preco="189.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/5.jpg" alt="Powerbank Coca-Cola" class="imagem-produto">
+                <h3 class="nome-produto">Carregador Turbo Coca-Cola</h3>
+                <ul class="specs-produto">
+                    <li>✓ Carregamento Rápido</li>
+                    <li>✓ 1 Entrada usb-c</li>
+                    <li>✓ Compacto e Resistente</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 149,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Carregador Turbo Coca-Cola" data-preco="149.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/caixa de som coca preta.jpg" id="img-caixa-coca" alt="Caixa Som Coca-Cola" class="imagem-produto">
+                <h3 class="nome-produto">Caixa de Som Retro Coca-Cola</h3>
+                <ul class="specs-produto">
+                    <li>✓ Estilo Vintage</li>
+                    <li>✓ Som Estéreo 10W</li>
+                    <li>✓ Resistente a Respingos</li>
+                </ul>
+                <div class="seletor-cores">
+                    <span class="texto-cor">Cor:</span>
+                    <label>
+                        <input type="radio" name="cor-caixa" value="preto" onclick="document.getElementById('img-caixa-coca').src='assets/caixa de som coca preta.jpg'">
+                        <span class="bolinha-cor cor-preta" title="Preto"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="cor-caixa" value="vermelho" checked onclick="document.getElementById('img-caixa-coca').src='assets/caixa de som coca.webp'">
+                        <span class="bolinha-cor cor-vermelha" title="Vermelho"></span>
+                    </label>
+                </div>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 259,00</span>
+                </div>
+                <button class="btn-comprar" data-nome="Caixa de Som Retro Coca-Cola" data-preco="259.00">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/6.webp" alt="Capa Coca-Cola" class="imagem-produto">
+                <h3 class="nome-produto">Capa para iPhone Coca-Cola Glass</h3>
+                <ul class="specs-produto">
+                    <li>✓ Proteção Anti-impacto</li>
+                    <li>✓ Acabamento em Vidro</li>
+                    <li>✓ Licenciado Oficial</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 89,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Capa para iPhone Coca-Cola Glass" data-preco="89.90">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACESSÓRIOS ESSENCIAIS -->
+    <section id="acessorios" class="secao-catalogo" style="background-color: #ffffff;">
+        <h2 class="titulo-secao">Acessórios Essenciais</h2>
+        <div class="grid-ofertas">
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/1.webp" alt="Carregador Turbo" class="imagem-produto">
+                <h3 class="nome-produto">Carregador Turbo 30W</h3>
+                <ul class="specs-produto">
+                    <li>✓ Carga Rápida</li>
+                    <li>✓ Fonte + Cabo USB-C</li>
+                    <li>✓ Garantia de 1 ano</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 99,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Carregador Turbo 30W" data-preco="99.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/11.webp" alt="Película 3D" class="imagem-produto">
+                <h3 class="nome-produto">Película de Vidro 3D</h3>
+                <ul class="specs-produto">
+                    <li>✓ Proteção contra riscos</li>
+                    <li>✓ Encaixe perfeito</li>
+                    <li>✓ Aplicação grátis na loja</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 39,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Película de Vidro 3D" data-preco="39.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/13.webp" alt="Suporte Veicular" class="imagem-produto">
+                <h3 class="nome-produto">Suporte Veicular Magnético</h3>
+                <ul class="specs-produto">
+                    <li>✓ Fixação super forte</li>
+                    <li>✓ Rotação 360º</li>
+                    <li>✓ Compatível com qualquer celular</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 49,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Suporte Veicular Magnético" data-preco="49.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/12.jpg" alt="Cabo USB-C" class="imagem-produto">
+                <h3 class="nome-produto">Cabo USB-C Reforçado 2m</h3>
+                <ul class="specs-produto">
+                    <li>✓ Revestimento em Nylon</li>
+                    <li>✓ Tamanho de 2 metros</li>
+                    <li>✓ Transferência de dados ultrarrápida</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 59,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Cabo USB-C Reforçado 2m" data-preco="59.90">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMÁTICA -->
+    <section id="informatica" class="secao-catalogo" style="background-color: #f9f9f9;">
+        <h2 class="titulo-secao">Informática e Periféricos</h2>
+        <div class="grid-ofertas">
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/2.jpg" alt="Mouse Sem Fio" class="imagem-produto">
+                <h3 class="nome-produto">Mouse Sem Fio Multilaser</h3>
+                <ul class="specs-produto">
+                    <li>✓ Conexão via nano receptor USB</li>
+                    <li>✓ Design Ergonômico</li>
+                    <li>✓ Pilha inclusa</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 49,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Mouse Sem Fio Multilaser" data-preco="49.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/3.webp"Teclado sem fio" class="imagem-produto">
+                <h3 class="nome-produto">Teclado Sem Fio ABNT2</h3>
+                <ul class="specs-produto">
+                    <li>✓ Teclas macias e silenciosas</li>
+                    <li>✓ Padrão Brasileiro (com Ç)</li>
+                    <li>✓ Conexão Plug and Play</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 89,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Teclado Sem Fio ABNT2" data-preco="89.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/4.jpg" alt="Pendrive 64GB" class="imagem-produto">
+                <h3 class="nome-produto">Pendrive SanDisk 64GB</h3>
+                <ul class="specs-produto">
+                    <li>✓ USB 3.0 (Transferência rápida)</li>
+                    <li>✓ Design compacto</li>
+                    <li>✓ Armazena milhares de fotos e vídeos</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 59,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="Pendrive SanDisk 64GB" data-preco="59.90">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto -->
+            <div class="card-produto">
+                <img src="assets/1.jpg" alt="WebCam Full HD" class="imagem-produto">
+                <h3 class="nome-produto">WebCam Full HD 1080p</h3>
+                <ul class="specs-produto">
+                    <li>✓ Imagem cristalina para reuniões</li>
+                    <li>✓ Microfone embutido</li>
+                    <li>✓ Clipe de fixação universal</li>
+                </ul>
+                <div class="preco-produto">
+                    <span class="preco-novo">R$ 129,90</span>
+                </div>
+                <button class="btn-comprar" data-nome="WebCam Full HD 1080p" data-preco="129.90">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAVETA DO CARRINHO LATERAL COMPLETA (ADICIONADA AQUI!) -->
+    <div id="carrinho" class="gaveta-carrinho">
+        <div class="cabecalho-carrinho">
+            <h2>Seu Carrinho</h2>
+            <button class="btn-fechar-carrinho">&times;</button>
+        </div>
+        <div class="itens-carrinho">
+            <!-- Os itens adicionados vão aparecer aqui pelo JS -->
+        </div>
+        <div class="rodape-carrinho">
+            <div class="total-carrinho">
+                <span>Total:</span>
+                <span class="valor-total">R$ 0,00</span>
+            </div>
+            <button id="btn-limpar-carrinho" class="btn-limpar">🗑️ Esvaziar Carrinho</button>
+            <button class="btn-finalizar-compra" id="btn-finalizar">Finalizar no WhatsApp</button>
+        </div>
+    </div> 
+
+    <!-- BOTAO VOLTAR AO TOPO -->
+    <button id="btn-topo" title="Voltar ao topo">↑</button>
+
+    <!-- FOOTER -->
+    <footer class="rodape">
+        <div class="rodape-container">
+            <div class="rodape-coluna">
+                <h2 style="color: var(--cor-destaque); margin-bottom: 15px;">Omni Cell</h2>
+                <p>Sua loja de tecnologia e acessórios aberta todos os dias para te atender com os melhores produtos, assistência técnica especializada e atendimento de ponta.</p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#acessorios">Acessórios</a></li>
+                    <li><a href="#informatica">Informática</a></li>
+                    <li><a href="#iwill">Produtos iWill</a></li>
+                    <li><a href="#cocacola">Parceria Coca-Cola</a></li>
+                    <li>
+                        <a href="#" class="icone-carrinho">
+                            🛒 Carrinho <span id="contador-carrinho" class="badge-carrinho">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Fale Conosco</h3>
+                <p>📱 <a href="https://wa.me/5534997920510" target="_blank" class="link-contato">WhatsApp: (34) 99792-0510</a></p>
+                <p>📸 <a href="https://www.instagram.com/lojasmyphone" target="_blank" class="link-contato">Instagram: lojasmyphone</a></p>
+                <p>📍 <a href="https://maps.google.com/?q=Avenida+João+Naves+de+Ávila+1441,+Tibery,+Uberlândia+-+MG,+38405-140" target="_blank" class="link-contato">Avenida João Naves de Ávila 1441 Tibery,<br>Uberlândia - MG 38405140</a></p>
+            </div>
+        </div>
+        <div class="rodape-direitos">
+            <p>&copy; 2026 Omni Cell. Todos os direitos reservados. Desenvolvido por Carlos Eduardo.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

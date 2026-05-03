@@ -1,0 +1,619 @@
+/* =========================================
+   1. VARIÁVEIS E RESET BÁSICO
+   ========================================= */
+:root {
+    --cor-fundo: #000000; /* Preto da logo */
+    --cor-destaque: #ffc107; /* Amarelo da logo */
+    --cor-texto: #ffffff; /* Branco das letras */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Evita que o header fixo cubra o título das seções ao clicar no menu */
+    scroll-padding-top: 100px; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 85px; /* Compensa a altura do header fixo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. CABEÇALHO (HEADER FIXO) E NAVEGAÇÃO
+   ========================================= */
+.cabecalho {
+    background-color: rgba(0, 0, 0, 0.95); /* Leve transparência para estilo premium */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    border-bottom: 2px solid var(--cor-destaque);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.logo-link {
+    display: block; /* Para o link respeitar o tamanho da imagem */
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05); /* Efeito tátil ao passar o mouse na logo */
+}
+
+.logo {
+    max-width: 80px;
+    width: auto;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--cor-destaque);
+}
+
+.btn-whatsapp {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: inline-block;
+}
+
+.btn-whatsapp:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   3. BANNER PRINCIPAL
+   ========================================= */
+.bannerPrincipal {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/img\ fundo\ preto.avif");
+    background-color: #1a1a1a;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.conteudoBanner h1 {
+    color: var(--cor-destaque);
+    font-size: 48px;
+    margin-bottom: 15px;
+    max-width: 800px;
+}
+
+.conteudoBanner p {
+    color: var(--cor-texto);
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn-comprar-banner {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-comprar-banner:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    transform: scale(1.05);
+}
+
+/* =========================================
+   4. ESTRUTURA DOS CATÁLOGOS E GRID
+   ========================================= */
+.secao-ofertas, .secao-catalogo {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.secao-ofertas { background-color: #f4f4f4; }
+
+.titulo-secao {
+    color: var(--cor-fundo);
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.grid-ofertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cards dos Produtos */
+.card-produto {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Garante que o botão fique sempre no final */
+}
+
+.card-produto:hover {
+    transform: translateY(-8px);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-produto {
+    background-color: #ffffff;
+    height: 220px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.nome-produto {
+    color: #111;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.specs-produto {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    flex-grow: 1; /* Empurra o preço e o botão para o fundo */
+}
+
+.preco-produto {
+    margin-bottom: 15px;
+}
+
+.preco-antigo {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    display: block;
+}
+
+.preco-novo {
+    color: #000;
+    font-size: 24px;
+    font-weight: 800;
+    display: block;
+}
+
+.btn-comprar {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: auto; /* Cola o botão no fundo do card */
+}
+
+.btn-comprar:hover {
+    background-color: #e0a800;
+}
+
+/* =========================================
+   5. SEÇÃO DE ASSISTÊNCIA TÉCNICA
+   ========================================= */
+.secao-assistencia {
+    background-color: var(--cor-destaque);
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.conteudo-assistencia {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titulo-assistencia {
+    color: var(--cor-fundo);
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.conteudo-assistencia p {
+    color: #333333;
+    font-size: 18px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.btn-orcamento {
+    background-color: var(--cor-fundo);
+    color: var(--cor-destaque);
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: inline-block;
+}
+
+.btn-orcamento:hover {
+    background-color: #222222;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   6. SELETOR DE CORES (PRODUTOS)
+   ========================================= */
+.seletor-cores {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.texto-cor {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+.seletor-cores input[type="radio"] { display: none; }
+
+.bolinha-cor {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cor-preta { background-color: #111111; }
+.cor-vermelha { background-color: #ff0000; }
+
+.seletor-cores input[type="radio"]:checked + .bolinha-cor {
+    border: 2px solid var(--cor-destaque);
+    transform: scale(1.2);
+}
+
+.bolinha-cor:hover { transform: scale(1.1); }
+
+/* =========================================
+   7. GAVETA DO CARRINHO LATERAL
+   ========================================= */
+.gaveta-carrinho {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Escondido por padrão */
+    width: 350px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animação mais fluida */
+}
+
+.gaveta-carrinho.aberto {
+    right: 0; /* Classe ativada pelo JS para mostrar o carrinho */
+}
+
+.cabecalho-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-destaque);
+}
+
+.btn-fechar-carrinho {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-fechar-carrinho:hover { color: var(--cor-destaque); }
+
+.itens-carrinho {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Itens individuais dentro do carrinho */
+.item-no-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item-carrinho h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.preco-item-carrinho {
+    font-weight: bold;
+    color: #000;
+}
+
+.btn-remover-item {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Rodapé fixo dentro da gaveta */
+.rodape-carrinho {
+    padding: 20px;
+    border-top: 2px solid #eeeeee;
+    background: #fafafa;
+}
+
+.total-carrinho {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-limpar {
+    width: 100%;
+    background-color: transparent;
+    color: #e31b23;
+    border: 1px solid #e31b23;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.btn-limpar:hover {
+    background-color: #e31b23;
+    color: white;
+}
+
+.btn-finalizar-compra {
+    width: 100%;
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-finalizar-compra:hover { background-color: #1ebe57; }
+
+/* Ícone Carrinho Flutuante */
+.icone-carrinho {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.icone-carrinho:hover {
+    transform: scale(1.05) translateY(-5px);
+    border-color: #fff;
+}
+
+.badge-carrinho {
+    background-color: #e31b23;
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 50%;
+}
+
+/* =========================================
+   8. BOTÃO VOLTAR AO TOPO
+   ========================================= */
+#btn-topo {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 1400;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-topo:hover {
+    background-color: #222;
+    color: var(--cor-destaque);
+    transform: scale(1.1);
+}
+
+/* =========================================
+   9. RODAPÉ (FOOTER)
+   ========================================= */
+.rodape {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    padding: 60px 20px 20px 20px;
+    border-top: 4px solid var(--cor-destaque);
+}
+
+.rodape-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rodape-coluna h3 {
+    color: var(--cor-destaque);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.rodape-coluna p, .rodape-coluna a {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rodape-coluna ul li { margin-bottom: 12px; }
+.rodape-coluna ul a:hover, .link-contato:hover { color: var(--cor-destaque); }
+
+.rodape-direitos {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    color: #777777;
+    font-size: 14px;
+}
+
+/* =========================================
+   10. RESPONSIVIDADE (CELULARES E TABLETS)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Header no Mobile */
+    .cabecalho {
+        padding: 10px 15px;
+    }
+    
+    .menu ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn-whatsapp { display: none; } /* Oculta o botão do cabeçalho para poupar espaço */
+    
+    .conteudoBanner h1 { font-size: 32px; }
+    
+    /* Grid de Ofertas */
+    .grid-ofertas { grid-template-columns: 1fr; }
+    
+    /* Carrinho */
+    .gaveta-carrinho { width: 85%; right: -100%; }
+    .icone-carrinho { bottom: 20px; right: 20px; padding: 12px 20px; }
+    #btn-topo { bottom: 80px; right: 20px; width: 45px; height: 45px; }
+    
+    /* Rodapé */
+    .rodape-coluna { align-items: center; text-align: center; }
+}
+
+/* =========================================
+   CORREÇÃO: IMAGEM MINIATURA DO CARRINHO
+   ========================================= */
+.img-mini-carrinho {
+    width: 65px !important;
+    height: 65px !important;
+    object-fit: contain;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* Ajusta o alinhamento da foto com o texto */
+.item-no-carrinho {
+    justify-content: flex-start;
+    gap: 15px;
+}

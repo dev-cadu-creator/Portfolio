@@ -1,0 +1,531 @@
+/* 1. Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Variáveis de Cores (Estilo Industrial/Tech) */
+:root {
+    --primary: #FFD700; /* Amarelo Vibrante/Ouro */
+    --accent: #222;    /* Cinza Industrial */
+    --bg: #050505;     /* Preto Profundo */
+}
+
+/* 3. Corpo e Fundo */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: #f5f5f5;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Efeito sutil de luz de fundo para dar profundidade */
+body::after {
+    content: "";
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- 4. SPLASH SCREEN (BOAS-VINDAS) --- */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Transição Estilo "Cortina Subindo" */
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    transform: translateY(-100%); /* Faz a tela subir */
+    pointer-events: none;
+}
+
+#splash-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3; 
+}
+
+.splash-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+/* O Visual do Avatar + Círculo */
+.splash-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-circle {
+    position: absolute;
+    width: 240px; /* Maior que a imagem para ficar em volta */
+    height: 240px;
+    border: 2px dashed var(--primary);
+    border-radius: 50%;
+    /* Gira e Pulsa a luz */
+    animation: rotate 20s linear infinite, pulseGlow 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.splash-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    filter: contrast(1.1) brightness(0.9) grayscale(20%); /* Levemente metálico */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Animações do Círculo */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.2; box-shadow: 0 0 0 transparent; }
+    50% { opacity: 0.6; box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); }
+}
+
+/* Textos da Splash */
+#typing-text {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px; /* Letras juntinhas e agressivas */
+    color: var(--primary);
+    border-right: 4px solid var(--primary);
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease, transform 1s ease;
+    color: #a3a3a3;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.fade-in-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 5. TIPOGRAFIA GERAL E GRADIENTES --- */
+/* Padronizando todos os títulos para o estilo metálico/ouro */
+h1, h2, h3, h4, .section-label {
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary) 150%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    color: #a3a3a3; /* Sobrescreve o gradiente aqui para manter limpo */
+    -webkit-text-fill-color: #a3a3a3; 
+    margin-bottom: 1.5rem;
+}
+
+/* --- 6. NAVEGAÇÃO --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* --- 7. ESTRUTURA GERAL (HERO, PROJETOS, SOBRE, SKILLS) --- */
+.hero, .projetos, .sobre, .skills {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #737373;
+    font-size: 1.1rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 1rem;
+}
+
+/* PROJETOS */
+.projetos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+}
+
+.projeto-item {
+    display: grid;
+    gap: 2rem;
+}
+
+@media(min-width: 768px){
+    .projeto-item {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+        gap: 4rem;
+    }
+}
+
+.projeto-img-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #0a0a0a;
+    cursor: zoom-in;
+    border: 1px solid #1a1a1a;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projeto-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.projeto-item:hover .projeto-img-wrapper {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.projeto-item:hover .projeto-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.projeto-meta h4 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.projeto-meta p {
+    color: #a3a3a3;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* SOBRE E SKILLS */
+.sobre-grid, .skills-container {
+    display: grid;
+    gap: 4rem;
+}
+
+@media(min-width: 768px) {
+    .sobre-grid, .skills-container {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.sobre-texto p {
+    font-size: 1.15rem;
+    color: #a3a3a3;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.foto-minimalista {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.5s ease;
+    border: 1px solid #1a1a1a;
+}
+
+.foto-minimalista:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.02);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.skill-column h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.skill-list { list-style: none; }
+
+.skill-list li {
+    font-size: 1.2rem;
+    color: #737373;
+    padding: 1rem 0;
+    border-bottom: 1px solid #1a1a1a;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    cursor: default;
+}
+
+.skill-list li:hover {
+    color: var(--primary);
+    padding-left: 10px; 
+}
+
+.skill-list li span {
+    font-size: 0.8rem;
+    color: #525252;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+
+/* --- 8. CONTATO / RODAPÉ --- */
+.contato {
+    padding: 10rem 5% 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato h2 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.contato p {
+    font-size: 1.2rem;
+    color: #a3a3a3;
+    margin-bottom: 4rem;
+}
+
+.btn-email {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-bottom: 6rem;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.btn-email:hover {
+    transform: translateY(-5px);
+    background: var(--primary);
+    color: var(--bg);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 3rem;
+}
+
+/* --- 9. ANIMAÇÕES REUTILIZÁVEIS E LIGHTBOX --- */
+.link-animado {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.link-animado::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary); /* Linha amarela no hover */
+    transition: width 0.3s ease;
+}
+
+.link-animado:hover::after { width: 100%; }
+
+/* --- Estilo dos Ícones do Rodapé --- */
+.footer-links a {
+    display: flex; /* Alinha o ícone e o texto lado a lado */
+    align-items: center;
+    gap: 8px; /* Espacinho elegante entre o ícone e a palavra */
+}
+
+.footer-links a i {
+    font-size: 1.4rem; /* Deixa o ícone um pouco maior que o texto */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* O ícone fica com a sua cor Amarela Vibrante e cresce um pouquinho no hover */
+.footer-links a:hover i {
+    color: var(--primary);
+    transform: scale(1.1) translateY(-2px); 
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 5, 0.98);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+    border: 1px solid #1a1a1a;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: var(--primary);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+/* --- Botão Secundário (Baixar Currículo) --- */
+.btn-secundario {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 215, 0, 0.05); /* Fundo quase transparente */
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 4px; /* Mais quadrado, pegada industrial */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem; /* Dá um respiro entre o texto e o botão */
+}
+
+.btn-secundario:hover {
+    background: var(--primary);
+    color: var(--bg);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    transform: translateY(-3px);
+}
