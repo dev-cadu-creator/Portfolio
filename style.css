@@ -529,3 +529,28 @@ h1, h2, h3, h4, .section-label {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
     transform: translateY(-3px);
 }
+
+/* Regras apenas para telas de celular (menores que 768px) */
+@media (max-width: 768px) {
+    /* Diminua o tamanho das fontes principais */
+    h1 {
+        font-size: 28px; 
+    }
+    h2 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 16px;
+    }
+    
+    /* Reduza os espaços vazios (paddings e margins) */
+    section {
+        padding: 20px 15px; /* Menos espaço nas laterais e em cima/baixo */
+    }
+
+    /* Se as imagens ou caixas estiverem vazando da tela */
+    img, .caixa-projeto {
+        max-width: 100%;
+        height: auto;
+    }
+}
